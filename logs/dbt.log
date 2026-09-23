@@ -1,0 +1,161 @@
+[0m12:34:11.089772 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023F62826120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023F6038CCD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023F651AF890>]}
+
+
+============================== 12:34:11.099290 | 1ba1977e-3b9b-4973-8ccf-398a3def781d ==============================
+[0m12:34:11.099290 [info ] [MainThread]: Running with dbt=1.12.5
+[0m12:34:11.100443 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\SFT-Amos\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init trovepay_analytics', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': 'logs'}
+[0m12:34:11.132374 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\SFT-Amos\.dbt
+[0m12:34:11.134791 [debug] [MainThread]: Starter project path: C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\venv\Lib\site-packages\dbt\include\starter_project
+[0m12:34:11.173149 [info ] [MainThread]: Setting up your profile.
+[0m12:34:22.122994 [info ] [MainThread]: Profile trovepay_analytics written to C:\Users\SFT-Amos\.dbt\profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+[0m12:34:22.128996 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m12:34:22.130447 [info ] [MainThread]: dbt version: 1.12.5
+[0m12:34:22.131873 [info ] [MainThread]: python version: 3.14.7
+[0m12:34:22.132566 [info ] [MainThread]: python path: C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\venv\Scripts\python.exe
+[0m12:34:22.134002 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m12:34:22.240423 [info ] [MainThread]: Using profiles dir at C:\Users\SFT-Amos\.dbt
+[0m12:34:22.241238 [info ] [MainThread]: Using profiles.yml file at C:\Users\SFT-Amos\.dbt\profiles.yml
+[0m12:34:22.241863 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\trovepay_analytics\dbt_project.yml
+[0m12:34:22.244708 [info ] [MainThread]: adapter type: duckdb
+[0m12:34:22.245221 [info ] [MainThread]: adapter version: 1.11.0
+[0m12:34:22.357948 [info ] [MainThread]: Configuration:
+[0m12:34:22.358475 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m12:34:22.358886 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m12:34:22.359299 [info ] [MainThread]: Required dependencies:
+[0m12:34:22.359731 [debug] [MainThread]: Executing "git --help"
+[0m12:34:22.362281 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m12:34:22.362776 [info ] [MainThread]: Connection:
+[0m12:34:22.363223 [info ] [MainThread]:   database: dev
+[0m12:34:22.363685 [info ] [MainThread]:   schema: main
+[0m12:34:22.364514 [info ] [MainThread]:   path: dev.duckdb
+[0m12:34:22.364946 [info ] [MainThread]:   config_options: None
+[0m12:34:22.365452 [info ] [MainThread]:   extensions: None
+[0m12:34:22.365900 [info ] [MainThread]:   settings: {}
+[0m12:34:22.366291 [info ] [MainThread]:   external_root: .
+[0m12:34:22.368437 [info ] [MainThread]:   use_credential_provider: None
+[0m12:34:22.369289 [info ] [MainThread]:   attach: None
+[0m12:34:22.369659 [info ] [MainThread]:   filesystems: None
+[0m12:34:22.370369 [info ] [MainThread]:   remote: None
+[0m12:34:22.370784 [info ] [MainThread]:   plugins: None
+[0m12:34:22.371156 [info ] [MainThread]:   disable_transactions: False
+[0m12:34:22.371715 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m12:34:22.568060 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m12:34:27.955579 [debug] [MainThread]: Using duckdb connection "debug"
+[0m12:34:27.956278 [debug] [MainThread]: On debug: select 1 as id
+[0m12:34:27.956802 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m12:34:27.987677 [debug] [MainThread]: SQL status: OK in 0.031 seconds
+[0m12:34:27.989220 [debug] [MainThread]: On debug: Close
+[0m12:34:27.989748 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m12:34:27.990512 [info ] [MainThread]: [31m1 check failed:[0m
+[0m12:34:27.991537 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m12:34:27.992699 [info ] [MainThread]: Your new dbt project "trovepay_analytics" was created!
+Initialized new project in C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\trovepay_analytics\trovepay_analytics
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m12:34:27.993699 [info ] [MainThread]: [31mYour profile may need adjustments. You can find the logs of `dbt debug` above[0m
+[0m12:34:27.995716 [debug] [MainThread]: Command `dbt init` succeeded at 12:34:27.995502 after 17.22 seconds
+[0m12:34:27.996373 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m12:34:27.996941 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023F650C0C30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023F633A6330>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023F6542E8B0>]}
+[0m12:34:27.997544 [debug] [MainThread]: Flushing usage events
+[0m12:34:29.895790 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m13:45:36.682369 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169BD212120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169BADA4B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169BFB939D0>]}
+
+
+============================== 13:45:36.690251 | 6a28b566-313a-42ad-8da9-7962a5534bb5 ==============================
+[0m13:45:36.690251 [info ] [MainThread]: Running with dbt=1.12.5
+[0m13:45:36.691618 [debug] [MainThread]: running dbt with arguments {'maximum_seed_size_mib': '1', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\SFT-Amos\\.dbt', 'invocation_command': 'dbt debug', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs'}
+[0m13:45:36.729858 [info ] [MainThread]: dbt version: 1.12.5
+[0m13:45:36.730519 [info ] [MainThread]: python version: 3.14.7
+[0m13:45:36.731015 [info ] [MainThread]: python path: C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\venv\Scripts\python.exe
+[0m13:45:36.731505 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m13:45:36.862225 [info ] [MainThread]: Using profiles dir at C:\Users\SFT-Amos\.dbt
+[0m13:45:36.863048 [info ] [MainThread]: Using profiles.yml file at C:\Users\SFT-Amos\.dbt\profiles.yml
+[0m13:45:36.863628 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\dbt_project.yml
+[0m13:45:36.866443 [info ] [MainThread]: adapter type: duckdb
+[0m13:45:36.866961 [info ] [MainThread]: adapter version: 1.11.0
+[0m13:45:36.867517 [info ] [MainThread]: Configuration:
+[0m13:45:36.868013 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:45:36.868419 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m13:45:36.868850 [info ] [MainThread]: Required dependencies:
+[0m13:45:36.869246 [debug] [MainThread]: Executing "git --help"
+[0m13:45:36.873959 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m13:45:36.874878 [info ] [MainThread]: Connection:
+[0m13:45:36.876150 [info ] [MainThread]:   database: dev
+[0m13:45:36.876583 [info ] [MainThread]:   schema: main
+[0m13:45:36.876891 [info ] [MainThread]:   path: dev.duckdb
+[0m13:45:36.877207 [info ] [MainThread]:   config_options: None
+[0m13:45:36.877505 [info ] [MainThread]:   extensions: None
+[0m13:45:36.877771 [info ] [MainThread]:   settings: {}
+[0m13:45:36.878125 [info ] [MainThread]:   external_root: .
+[0m13:45:36.878548 [info ] [MainThread]:   use_credential_provider: None
+[0m13:45:36.878971 [info ] [MainThread]:   attach: None
+[0m13:45:36.879353 [info ] [MainThread]:   filesystems: None
+[0m13:45:36.879710 [info ] [MainThread]:   remote: None
+[0m13:45:36.880060 [info ] [MainThread]:   plugins: None
+[0m13:45:36.880415 [info ] [MainThread]:   disable_transactions: False
+[0m13:45:36.881026 [info ] [MainThread]: Registered adapter: duckdb=1.11.0
+[0m13:45:37.058936 [debug] [MainThread]: Acquiring new duckdb connection 'debug'
+[0m13:45:37.101714 [debug] [MainThread]: Using duckdb connection "debug"
+[0m13:45:37.102125 [debug] [MainThread]: On debug: select 1 as id
+[0m13:45:37.102394 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:45:37.120999 [debug] [MainThread]: SQL status: OK in 0.019 seconds
+[0m13:45:37.121979 [debug] [MainThread]: On debug: Close
+[0m13:45:37.122352 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:45:37.123045 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m13:45:37.123527 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\dbt_project.yml> not found
+
+[0m13:45:37.123964 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m13:45:37.124784 [debug] [MainThread]: Command `dbt debug` failed at 13:45:37.124658 after 0.84 seconds
+[0m13:45:37.125077 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:45:37.125365 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169BFC4F490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169BFDD3650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000169BFC37BD0>]}
+[0m13:45:37.125702 [debug] [MainThread]: Flushing usage events
+[0m13:45:38.017500 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:33:09.627635 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002011CA82120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002011A614B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002011F45F9D0>]}
+
+
+============================== 11:33:09.635358 | ae5e7679-ce1f-4afb-a9a8-e5345fe0cd41 ==============================
+[0m11:33:09.635358 [info ] [MainThread]: Running with dbt=1.12.5
+[0m11:33:09.636387 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\SFT-Amos\\.dbt', 'use_colors': 'True', 'hints_enabled': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run --select test', 'log_path': 'logs'}
+[0m11:33:09.637042 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:33:09.638316 [debug] [MainThread]: Command `dbt run` failed at 11:33:09.638129 after 0.33 seconds
+[0m11:33:09.638776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002011F5143E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002011F510290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002011F4957B0>]}
+[0m11:33:09.639226 [debug] [MainThread]: Flushing usage events
+[0m11:33:10.518762 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m11:34:27.744325 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023DFA522120>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023DF80E4B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023DFCEFF9D0>]}
+
+
+============================== 11:34:27.749701 | a6a5595c-d34d-4607-8c6f-a7a5cf7e9e87 ==============================
+[0m11:34:27.749701 [info ] [MainThread]: Running with dbt=1.12.5
+[0m11:34:27.750506 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'maximum_seed_size_mib': '1', 'target_path': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\SFT-Amos\\.dbt', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt run', 'log_path': 'logs'}
+[0m11:34:27.751019 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\SFT-Amos\OneDrive\Desktop\Personal\Analytics\trovepay_analytics\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:34:27.751921 [debug] [MainThread]: Command `dbt run` failed at 11:34:27.751787 after 0.22 seconds
+[0m11:34:27.752259 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023DFCFB03E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023DFCFAC290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023DFCF357B0>]}
+[0m11:34:27.752679 [debug] [MainThread]: Flushing usage events
+[0m11:34:28.738108 [debug] [MainThread]: An error was encountered while trying to flush usage events

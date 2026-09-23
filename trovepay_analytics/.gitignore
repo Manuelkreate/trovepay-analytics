@@ -1,0 +1,9 @@
+
+target/
+dbt_packages/
+logs/
+.env
+
+# ERD Studio AI coding harness (auto-generated, safe to remove)
+.github/instructions/erd-studio.instructions.md
+dbt_internal_packages/

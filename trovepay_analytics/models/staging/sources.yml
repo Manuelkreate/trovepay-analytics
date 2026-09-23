@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: trovepay_raw          
+    database: trovepay                 
+    schema: main                  
+    tables:
+      - name: raw_merchants
+        description: "Raw table for merchant population"
+      - name: raw_terminals
+        description: "Raw table for terminals"
+      - name: raw_loan_applications
+        description: "Raw table for loan applications"
+      - name: raw_loans
+        description: "Raw table for loans"
+      - name: raw_repayment_schedule
+        description: "Raw table for repayment schedule"
+      - name: raw_repayments
+        description: "Raw table for repayments"
+      - name: raw_transactions
+        description: "Raw table for transactions"
+
+    
