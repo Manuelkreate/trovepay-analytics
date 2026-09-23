@@ -1,0 +1,143 @@
+version: 2
+
+models:
+  - name: stg_merchants
+    columns:
+      - name: merchant_id
+        tests:
+          - unique
+          - not_null
+      - name: business_name
+        tests:
+          - not_null
+      - name: onboarding_date
+        tests:
+          - not_null
+
+  - name: stg_terminals
+    columns:
+      - name: terminal_id
+        tests:
+          - unique
+          - not_null
+      - name: merchant_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
+      - name: assigned_at
+        tests:
+          - not_null
+
+  - name: stg_transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: merchant_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
+      - name: terminal_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_terminals')
+                field: terminal_id
+      - name: transaction_timestamp
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['successful', 'failed', 'cancelled', 'pending']
+
+  - name: stg_loan_applications
+    columns:
+      - name: application_id
+        tests:
+          - unique
+          - not_null
+      - name: merchant_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
+      - name: application_date
+        tests:
+          - not_null
+
+  - name: stg_loans
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+      - name: application_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_loan_applications')
+                field: application_id
+      - name: merchant_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
+
+  - name: stg_repayment_schedule
+    columns:
+      - name: schedule_id
+        tests:
+          - unique
+          - not_null
+      - name: loan_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_loans')
+                field: loan_id
+      - name: installment_number
+        tests:
+          - not_null
+      - name: due_date
+        tests:
+          - not_null
+      - name: amount_due
+        tests:
+          - not_null
+
+  - name: stg_repayments
+    columns:
+      - name: repayment_id
+        tests:
+          - unique
+          - not_null
+      - name: loan_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_loans')
+                field: loan_id
+      - name: repayment_date
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null
