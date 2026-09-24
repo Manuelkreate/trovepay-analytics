@@ -1,5 +1,14 @@
+{{ config(
+    materialized='incremental',
+    unique_key='transaction_id'
+) }}
+
 with source as (
-    select * from {{source('trovepay_raw', 'raw_transactions')}}
+    select * from {{ source('trovepay_raw', 'raw_transactions') }}
+
+    {% if is_incremental() %}
+    where "timestamp" > (select max(transaction_timestamp) from {{ this }})
+    {% endif %}
 ),
 
 clean as (
