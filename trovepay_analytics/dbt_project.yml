@@ -34,4 +34,8 @@ models:
     # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: view
-        
+    intermediate:
+      int_qualifying_transactions: 
+        +materialized: table
+      int_merchant_observations: 
+        +materialized: table        
