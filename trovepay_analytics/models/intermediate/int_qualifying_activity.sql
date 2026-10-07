@@ -1,5 +1,3 @@
--- int_qualifying_activity.sql
-
 with windowed_daily as (
     select
         mo.merchant_id,
