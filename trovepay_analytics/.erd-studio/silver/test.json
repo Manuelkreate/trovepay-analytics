@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 5,
+  "domain": "test",
+  "layer": "silver",
+  "description": "Drawn from dbt: staging.",
+  "logical": {
+    "models": [
+      "stg_loans",
+      "stg_merchants",
+      "stg_loan_applications",
+      "stg_terminals",
+      "stg_transactions",
+      "stg_repayment_schedule",
+      "stg_repayments"
+    ],
+    "relationships": []
+  },
+  "viewConfig": {
+    "positions": {
+      "stg_loans": {
+        "x": 675,
+        "y": 26
+      },
+      "stg_merchants": {
+        "x": 169,
+        "y": 183
+      },
+      "stg_loan_applications": {
+        "x": 574,
+        "y": 286
+      },
+      "stg_terminals": {
+        "x": 438,
+        "y": 527
+      },
+      "stg_transactions": {
+        "x": 125,
+        "y": 462
+      },
+      "stg_repayment_schedule": {
+        "x": 836,
+        "y": 263
+      },
+      "stg_repayments": {
+        "x": 200,
+        "y": 12
+      }
+    }
+  }
+}

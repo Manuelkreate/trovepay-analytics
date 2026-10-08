@@ -1,0 +1,25 @@
+name: stg_transactions
+schema: main
+columns:
+  - name: transaction_id
+    dataType: unknown
+    isPrimaryKey: true
+  - name: merchant_id
+    dataType: unknown
+    isForeignKey: true
+  - name: terminal_id
+    dataType: unknown
+    isForeignKey: true
+  - name: transaction_timestamp
+    dataType: unknown
+  - name: status
+    dataType: unknown
+relationships:
+  - fromColumn: merchant_id
+    toModel: stg_merchants
+    toColumn: merchant_id
+    cardinality: many-to-one
+  - fromColumn: terminal_id
+    toModel: stg_terminals
+    toColumn: terminal_id
+    cardinality: many-to-one

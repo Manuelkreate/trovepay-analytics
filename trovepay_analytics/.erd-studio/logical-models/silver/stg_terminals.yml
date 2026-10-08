@@ -1,0 +1,16 @@
+name: stg_terminals
+schema: main
+columns:
+  - name: terminal_id
+    dataType: unknown
+    isPrimaryKey: true
+  - name: merchant_id
+    dataType: unknown
+    isForeignKey: true
+  - name: assigned_at
+    dataType: unknown
+relationships:
+  - fromColumn: merchant_id
+    toModel: stg_merchants
+    toColumn: merchant_id
+    cardinality: many-to-one

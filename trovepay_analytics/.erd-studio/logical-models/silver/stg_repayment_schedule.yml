@@ -1,0 +1,20 @@
+name: stg_repayment_schedule
+schema: main
+columns:
+  - name: schedule_id
+    dataType: unknown
+    isPrimaryKey: true
+  - name: loan_id
+    dataType: unknown
+    isForeignKey: true
+  - name: installment_number
+    dataType: unknown
+  - name: due_date
+    dataType: unknown
+  - name: amount_due
+    dataType: unknown
+relationships:
+  - fromColumn: loan_id
+    toModel: stg_loans
+    toColumn: loan_id
+    cardinality: many-to-one

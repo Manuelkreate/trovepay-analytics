@@ -1,0 +1,21 @@
+name: stg_loans
+schema: main
+columns:
+  - name: loan_id
+    dataType: unknown
+    isPrimaryKey: true
+  - name: application_id
+    dataType: unknown
+    isForeignKey: true
+  - name: merchant_id
+    dataType: unknown
+    isForeignKey: true
+relationships:
+  - fromColumn: application_id
+    toModel: stg_loan_applications
+    toColumn: application_id
+    cardinality: many-to-one
+  - fromColumn: merchant_id
+    toModel: stg_merchants
+    toColumn: merchant_id
+    cardinality: many-to-one

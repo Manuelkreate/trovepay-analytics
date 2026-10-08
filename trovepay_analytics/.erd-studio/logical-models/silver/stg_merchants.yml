@@ -1,0 +1,10 @@
+name: stg_merchants
+schema: main
+columns:
+  - name: merchant_id
+    dataType: unknown
+    isPrimaryKey: true
+  - name: business_name
+    dataType: unknown
+  - name: onboarding_date
+    dataType: unknown
