@@ -25,3 +25,33 @@ models:
           - accepted_values:
               arguments:
                 values: ['ready', 'active_not_ready', 'inactive_90d']      
+  - name: mart_loan_performance
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+      - name: disbursement_month
+        tests:
+          - not_null
+      - name: business_type
+        tests:
+          - not_null
+      - name: is_fully_repaid
+        tests:
+          - not_null
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "not is_fully_repaid or is_matured"
+
+
+  - name: mart_loan_performance_by_cohort
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [disbursement_month, business_type]
+    columns:
+      - name: loans_disbursed
+        tests:
+          - not_null

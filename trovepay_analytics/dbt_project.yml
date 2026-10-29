@@ -43,3 +43,4 @@ flags:
 
 vars:
   delinquency_days: 30
+  readiness_calibration_date: '2025-06-30'

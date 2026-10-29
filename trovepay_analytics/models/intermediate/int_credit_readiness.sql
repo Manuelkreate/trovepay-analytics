@@ -3,7 +3,7 @@ with reference_thresholds as (
         quantile_cont(qualifying_txn_count_90d, 0.5) as min_txn_count_90d,
         quantile_cont(qualifying_txn_value_90d, 0.5) as min_txn_value_90d
     from {{ ref('int_qualifying_activity') }}
-    where observation_date = date '2025-06-30'
+    where observation_date = date '{{ var("readiness_calibration_date") }}'
         and qualifying_txn_count_90d > 0
 ),
 
