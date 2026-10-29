@@ -65,12 +65,12 @@ select
     case
         when c.covered_date is not null and c.covered_date <= s.due_date then 'paid_on_time'
         when c.covered_date is not null then 'paid_late'
-        when s.due_date > dc.data_cutoff then 'not_yet_due'
+        when s.due_date >= dc.data_cutoff then 'not_yet_due'
         else 'unpaid_overdue'
     end as installment_status,
     case
         when c.covered_date is not null then greatest(0, c.covered_date - s.due_date)
-        when s.due_date > dc.data_cutoff then null
+        when s.due_date >= dc.data_cutoff then null
         else dc.data_cutoff - s.due_date
     end as days_late
 from schedule_bounds s

@@ -47,11 +47,12 @@ def load_table(con, table_name, date_column, as_of_cutoff):
     csv_path = os.path.join(GENERATOR_DATA_PATH, f"{table_name}.csv")
     raw_table = f"raw_{table_name}"
     watermark = get_watermark(con, table_name)
-    col = f'"{date_column}"' 
 
-    where_clauses = [f"{col} <= '{as_of_cutoff}'"]
+    day = f'CAST(CAST("{date_column}" AS TIMESTAMP) AS DATE)'
+
+    where_clauses = [f"{day} <= DATE '{as_of_cutoff}'"]
     if watermark is not None:
-        where_clauses.append(f"{col} > '{watermark}'")
+        where_clauses.append(f"{day} > DATE '{watermark.date().isoformat()}'")
     where_sql = " AND ".join(where_clauses)
 
     query = f"SELECT * FROM read_csv_auto('{csv_path}') WHERE {where_sql}"

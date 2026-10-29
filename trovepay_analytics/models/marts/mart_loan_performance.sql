@@ -16,6 +16,7 @@ select
     o.installment_count,
     o.total_scheduled,
     o.total_repaid,
+    round(o.total_repaid / nullif(o.total_scheduled, 0), 4) as repayment_ratio,
     o.outstanding_due_amount,
     o.paid_on_time_count,
     o.paid_late_count,

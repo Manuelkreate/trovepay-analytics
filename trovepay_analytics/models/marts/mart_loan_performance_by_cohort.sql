@@ -10,6 +10,10 @@ select
         count(*) filter (where is_matured and is_fully_repaid)
         / nullif(count(*) filter (where is_matured), 0), 4
     ) as fully_repaid_rate_matured,
+        round(
+        sum(total_repaid) filter (where is_matured)
+        / nullif(sum(total_scheduled) filter (where is_matured), 0), 4
+    ) as collection_rate_matured,
     round(count(*) filter (where is_late) / count(*), 4) as late_rate,
     round(count(*) filter (where is_ever_delinquent) / count(*), 4) as ever_delinquent_rate,
     round(count(*) filter (where is_currently_delinquent) / count(*), 4) as currently_delinquent_rate,
