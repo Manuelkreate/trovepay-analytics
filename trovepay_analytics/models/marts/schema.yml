@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: mart_credit_readiness_monthly
+    columns:
+      - name: observation_date
+        tests:
+          - unique
+          - not_null
+      - name: ready_merchants
+        tests:
+          - not_null
+
+  - name: mart_credit_readiness_current
+    columns:
+      - name: merchant_id
+        tests:
+          - unique
+          - not_null
+      - name: rolling_ready_state
+        tests:
+          - not_null
+      - name: readiness_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['ready', 'active_not_ready', 'inactive_90d']      
