@@ -3,3 +3,4 @@ __pycache__/
 *.duckdb
 *.duckdb.wal
 .env
+dbt_packages/

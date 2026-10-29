@@ -37,3 +37,6 @@ models:
       +materialized: table
 flags:
   require_generic_test_arguments_property: true
+
+vars:
+  delinquency_days: 30

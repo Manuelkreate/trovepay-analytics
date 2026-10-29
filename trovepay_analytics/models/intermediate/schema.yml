@@ -1,0 +1,140 @@
+version: 2
+
+models:
+  - name: int_data_cutoff
+    columns:
+      - name: data_cutoff
+        tests:
+          - not_null
+
+  - name: int_qualifying_transactions
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: merchant_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_merchants')
+                field: merchant_id
+
+  - name: int_merchant_observations
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [merchant_id, observation_date]
+    columns:
+      - name: merchant_id
+        tests:
+          - not_null
+      - name: observation_date
+        tests:
+          - not_null
+
+  - name: int_merchant_activity_daily
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [merchant_id, activity_date]
+    columns:
+      - name: merchant_id
+        tests:
+          - not_null
+      - name: activity_date
+        tests:
+          - not_null
+      - name: daily_txn_count
+        tests:
+          - not_null
+
+  - name: int_qualifying_activity
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [merchant_id, observation_date]
+    columns:
+      - name: qualifying_txn_count_90d
+        tests:
+          - not_null
+      - name: qualifying_txn_value_90d
+        tests:
+          - not_null
+
+  - name: int_merchant_recency
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [merchant_id, observation_date]
+    columns:
+      - name: merchant_id
+        tests:
+          - not_null
+      - name: observation_date
+        tests:
+          - not_null
+
+  - name: int_credit_readiness
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [merchant_id, observation_date]
+    columns:
+      - name: rolling_ready_state
+        tests:
+          - not_null
+
+  - name: int_repayment_allocation
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [loan_id, installment_number]
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "amount_allocated <= amount_due"
+    columns:
+      - name: schedule_id
+        tests:
+          - unique
+          - not_null
+      - name: loan_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_loans')
+                field: loan_id
+      - name: installment_status
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [paid_on_time, paid_late, unpaid_overdue, not_yet_due]
+      - name: amount_allocated
+        tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: int_loan_outcomes
+    tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "not is_currently_delinquent or is_ever_delinquent"
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "not is_fully_repaid or unpaid_overdue_count = 0"
+    columns:
+      - name: loan_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_loans')
+                field: loan_id
+      - name: is_fully_repaid
+        tests:
+          - not_null
